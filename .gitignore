@@ -1,5 +1,5 @@
-vowpal-wabbit/CMakeLists-deps-wip.txt  
-vowpal-wabbit/CMakeLists-wip.txt
+seidr/CMakeLists-deps-wip.txt  
+seidr/CMakeLists-wip.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
