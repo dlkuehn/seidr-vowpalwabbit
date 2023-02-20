@@ -30,6 +30,6 @@
 <p></p>
 <b>seidr</b> - new package
 <p></p>
-<b>py-vowpal-wabbit</b> - new package
+<b>py-vowpalwabbit</b> - new package
 <p></p>
 <b>vowpal-wabbit</b> - new package
