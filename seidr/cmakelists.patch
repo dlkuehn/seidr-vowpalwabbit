@@ -1,0 +1,61 @@
+--- ./CMakeLists.txt.orig	2023-02-19 07:38:47.657060651 -0600
++++ ./CMakeLists.txt	2023-02-19 07:43:29.518258373 -0600
+@@ -255,15 +255,15 @@
+   src/Seidr/top.cpp
+   src/Seidr/viewRanks.cpp
+   src/Seidr/seidr.cpp)
++
++set(NETWORKIT_ROOT "$ENV{NETWORKIT_ROOT}")
+ target_include_directories(
+   seidr PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/deps/include
+-                ${CMAKE_CURRENT_BINARY_DIR}/NetworKit/include
+-                src/Seidr)
++  ${NETWORKIT_ROOT}/include
++  src/Seidr)
+ target_link_directories(
+-  seidr PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/NetworKit/lib
+-                ${CMAKE_CURRENT_BINARY_DIR}/NetworKit/lib64
++	seidr PRIVATE ${NETWORKIT_ROOT}/lib
+   )
+-add_dependencies(seidr NetworKit)
+ 
+ # Tigress
+ add_executable(tigress src/Tigress/tiglm.cpp src/Tigress/tigress.cpp
+@@ -276,15 +276,18 @@
+ target_include_directories(el-ensemble PRIVATE src/ElNet)
+ 
+ # SVM ensemble
+-add_executable(svm-ensemble src/SVM/svm-ensemble.cpp src/SVM/svm-fun.cpp
+-                            external/libsvm/svm.cpp)
+-target_include_directories(svm-ensemble PRIVATE external/libsvm src/SVM)
++set(SVM_ROOT "$ENV{LIBSVM_ROOT}")
++add_executable(
++	svm-ensemble src/SVM/svm-ensemble.cpp src/SVM/svm-fun.cpp
++	${SVM_ROOT}/src/svm.cpp)
++target_include_directories(svm-ensemble PRIVATE ${SVM_ROOT}/include src/SVM)
+ 
+ # llr ensemble
++set(LIBLINEAR_ROOT "$ENV{LIBLINEAR_ROOT}")
+ add_executable(
+-  llr-ensemble src/SVM/linear-ensemble.cpp src/SVM/linear-fun.cpp
+-               external/liblinear/linear.cpp external/liblinear/tron.cpp)
+-target_include_directories(llr-ensemble PRIVATE external/liblinear src/SVM)
++	llr-ensemble src/SVM/linear-ensemble.cpp src/SVM/linear-fun.cpp
++	${LIBLINEAR_ROOT}/src/linear.cpp ${LIBLINEAR_ROOT}/src/tron.cpp)
++target_include_directories(llr-ensemble PRIVATE ${LIBLINEAR_ROOT}/include src/SVM)
+ 
+ # Narromi
+ add_executable(narromi src/Narromi/stats_fun.cpp ${IP_SRC}
+@@ -388,6 +391,12 @@
+ target_include_directories(seidr PRIVATE ${ZLIB_INCLUDE_DIRS})
+ target_link_libraries(seidr PUBLIC ${ZLIB_LIBRARIES})
+ 
++set(TLX_ROOT "$ENV{TLX_ROOT}")
++find_package(TLX REQUIRED
++	PATHS ${TLX_ROOT})
++target_include_directories(seidr PRIVATE ${TLX_INCLUDE_DIRS})
++target_link_libraries(seidr PUBLIC ${TLX_LIBRARIES})
++
+ if(SEIDR_PSTL)
+   find_package(TBB REQUIRED)
+   target_include_directories(seidr PRIVATE ${TBB_INCLUDE_DIR})

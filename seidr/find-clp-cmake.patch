@@ -1,0 +1,29 @@
+--- ./CMakeModules/FindCLP.cmake.orig	2023-02-14 10:46:11.984418244 -0600
++++ ./CMakeModules/FindCLP.cmake	2023-02-14 10:49:54.842071948 -0600
+@@ -10,8 +10,11 @@
+   SET(CLP_CUSTOM_PATH $ENV{CLP_ROOT})
+ endif()
+ 
++SET(COIN_UTILS_ROOT "$ENV{COIN_UTILS_ROOT}")
++
+ SET(CLP_LIBPATHS /usr/lib64 /usr/lib /usr/local/lib /lib /usr/lib/coin 
+     /usr/local/lib/coin /lib/coin ${CLP_CUSTOM_PATH}/lib
++    ${COIN_UTILS_ROOT}/lib
+ )
+ 
+ SET(CLP_INCPATHS /usr/include/ /usr/local/include/ /include
+@@ -19,11 +22,10 @@
+     /include/clp ${CLP_CUSTOM_PATH}/include/clp /usr/include/coin 
+     /usr/local/include/coin /include/coin ${CLP_CUSTOM_PATH}/include/coin
+     /usr/include/clp/coin /usr/local/include/clp/coin /include/clp/coin 
+-    ${CLP_CUSTOM_PATH}/include/clp/coin /usr/include/coinutils/coin 
+-    /usr/local/include/coinutils/coin /include/coinutils/coin 
+-    ${CLP_CUSTOM_PATH}/include/coinutils/coin /usr/include/coinutils 
+-    /usr/local/include/coinutils /include/coinutils 
++    ${CLP_CUSTOM_PATH}/include/clp/coin ${COINUTILS_ROOT}/include/coin   
++    /usr/include/coinutils /usr/local/include/coinutils /include/coinutils 
+     ${CLP_CUSTOM_PATH}/include/coinutils
++    ${COIN_UTILS_ROOT}/include/coin
+ )
+ 
+ FIND_PATH(CLP_INCLUDE_DIR
