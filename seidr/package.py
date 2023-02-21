@@ -36,11 +36,6 @@ class Seidr(CMakePackage):
 
     build_directory = 'build'
 
-    def flag_handler(self, name, flags):
-        if name in ['cxxflags', 'CXXFLAGS']:
-            flags.append('-std=gnu++11')
-        return (flags, None, None)
-
     patch("deps-cmakelists.patch")
     patch("cmakelists.patch")
     patch("find-clp-cmake.patch")
