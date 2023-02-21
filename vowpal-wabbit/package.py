@@ -36,14 +36,12 @@ class VowpalWabbit(CMakePackage):
     depends_on("help2man", type="build")
     depends_on("rapidjson", type="build")
     depends_on("spdlog", type="build")
-    # depends_on("string-view-lite", type="build")
     depends_on("zlib", type="build")
 
     def cmake_args(self):
         args = []
         if "+flatbuffers" in self.spec:
             args.append('-DBUILD_FLATBUFFERS="ON"')
-            #args.append('-DVW_FLATBUFFERS_SYS_DEP:BOOL="ON"')
         args.append('-DVW_INSTALL:BOOL="ON"')
         args.append('-DFMT_SYS_DEP:BOOL="ON"')
         args.append('-DRAPIDJSON_SYS_DEP:BOOL="ON"')
@@ -51,7 +49,6 @@ class VowpalWabbit(CMakePackage):
         args.append('-DVW_BOOST_MATH_SYS_DEP:BOOL="ON"')
         args.append('-DVW_EIGEN_SYS_DEP:BOOL="ON"')
         args.append('-DVW_GTEST_SYS_DEP:BOOL="ON"')
-        # args.append('-DVW_STRING_VIEW_LITE_SYS_DEP:BOOL="ON"')
         args.append('-DVW_ZLIB_SYS_DEP:BOOL="ON"')
         args.append('-DBUILD_TESTING:BOOL="OFF"')
 
