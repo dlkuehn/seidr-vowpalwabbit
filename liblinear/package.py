@@ -14,10 +14,11 @@ class Liblinear(MakefilePackage):
 
     homepage = "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
 
-    url = "https://github.com/cjlin1/liblinear/archive/refs/tags/v245.tar.gz"
+    url = "https://github.com/cjlin1/liblinear/archive/refs/tags/v246.tar.gz"
     list_url = "https://github.com/cjlin1/liblinear/archive/refs/tags/"
     list_depth = 1
 
+    version("246", sha256="88bef33258c0b686a57a8f373ff3eb1912666aadd5a26cfb2101604ef2c64140")
     version("245", sha256="ce29f42c2c0d10e4627ac50a953fe3c130d2802868e6a2dc9a396356b96e8abc")
     version("244", sha256="6e2526245ba4d01bd2660f35f59293fe04e32d5b16fd0372e40d0609df63b373")
     version("243", sha256="925fc8afe26302d18a2b0812fb311093ee15ad11d3d74a0eb43b4a159ff23e36")
