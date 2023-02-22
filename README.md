@@ -25,7 +25,7 @@
 </ul>
 </p>
 
-<b>libsvm</b> - Add new versions, install source files to $PREFIX/src.
+<b>libsvm</b> - Add new versions, install source files to $PREFIX/src, add alternative package file.
 <p></p>
 <b>liblinear</b> - New package
 <p></p>
