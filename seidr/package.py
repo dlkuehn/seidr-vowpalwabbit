@@ -56,7 +56,6 @@ class Seidr(CMakePackage):
             args.append("-DSEIDR_WITH_MPI=ON")
         else:
             args.append("-DSEIDR_WITHOUT_MPI=ON")
-            #args.append(self.define_from_variant("SEIDR_WITH_MPI", "mpi"))
         args.append(self.define_from_variant("SEIDR_PSTL", "tbb"))
         args.append('-DNARROMI_USE_CLP:BOOL=ON')
         return args
