@@ -32,7 +32,7 @@ class VowpalWabbit(CMakePackage):
     depends_on("eigen")
     depends_on("flatbuffers", when="+flatbuffers")
     depends_on("fmt")
-    depends_on("googletest")
+    depends_on("googletest", type="test")
     depends_on("help2man")
     depends_on("rapidjson")
     depends_on("spdlog")
