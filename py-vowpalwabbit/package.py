@@ -19,7 +19,7 @@ class PyVowpalwabbit(PythonPackage):
 
     depends_on("py-setuptools", type="build")
 
-    depends_on("boost+program_options+system+thread+math+python+test", type="build")
+    depends_on("boost+program_options+system+thread+math+python+test")
     depends_on("cmake", type="build")
     depends_on("py-numpy", type=("build", "run"))
     depends_on("py-pandas@0.24.2:", type=("build", "run"))
