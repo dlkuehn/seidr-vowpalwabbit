@@ -25,3 +25,4 @@ class PyVowpalwabbit(PythonPackage):
     depends_on("py-pandas@0.24.2:", type=("build", "run"))
     depends_on("py-scipy", type=("build", "run"))
     depends_on("py-scikit-learn@0.17.1:", type=("build", "run"))
+    depends_on("zlib")
