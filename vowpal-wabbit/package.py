@@ -28,15 +28,15 @@ class VowpalWabbit(CMakePackage):
         'flatbuffers', default=False, description='Build with flatbuffers support'
     )
 
-    depends_on("boost+program_options+math+python+test")
-    depends_on("eigen")
-    depends_on("flatbuffers", when="+flatbuffers")
-    depends_on("fmt")
-    depends_on("googletest", type="test")
-    depends_on("help2man")
-    depends_on("rapidjson")
-    depends_on("spdlog")
-    depends_on("zlib")
+    depends_on("boost+program_options+math+python+test", type="build")
+    depends_on("eigen", type="build")
+    depends_on("flatbuffers", when="+flatbuffers", type="build")
+    depends_on("fmt", type="build")
+    depends_on("googletest", type="build")
+    depends_on("help2man", type="build")
+    depends_on("rapidjson", type="build")
+    depends_on("spdlog", type="build")
+    depends_on("zlib", type="build")
 
     def cmake_args(self):
         args = []
