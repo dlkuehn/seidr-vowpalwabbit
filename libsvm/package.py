@@ -11,7 +11,8 @@ class Libsvm(MakefilePackage):
     classification and regression."""
 
     homepage = "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
-    url = "https://github.com/cjlin1/libsvm/archive/v322.tar.gz"
+
+    url = "https://github.com/cjlin1/libsvm/archive/v330.tar.gz"
 
     version("330", sha256="e4fe41308c87cc210aec73e4f5f0fb4da14234d90e7a131763fbad3788ca2d80")
     version("323", sha256="7a466f90f327a98f8ed1cb217570547bcb00077933d1619f3cb9e73518f38196")
